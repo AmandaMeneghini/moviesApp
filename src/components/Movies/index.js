@@ -29,7 +29,7 @@ export default function Movies({data}) {
       </View>
 
       <Modal transparent={true} animationType="slide" visible={visibleModal}>
-        <ModalDetails />
+        <ModalDetails movie={data} back={() => setVisibleModal(false)}/>
       </Modal>
     </View>
   );
