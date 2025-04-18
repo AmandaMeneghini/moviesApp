@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from 'react';
-import { View, Text, StyleSheet} from 'react-native';
-import api from './src/services/api'
+import { View, Text, StyleSheet, FlatList} from 'react-native';
+
+import api from './src/services/api';
+import Movies from './src/components/Movies';
 
 export default function App() {
 
@@ -19,9 +21,13 @@ export default function App() {
 
   return(
     <View styles={styles.container}>
-      <Text> 
-        Movies
-      </Text>
+      
+      <FlatList
+        data={movies}
+        keyExtractor={item =>  String(item.id)}
+        renderItem={({item}) => <Movies data={item}/>}
+       />
+
     </View>
   );
 }
