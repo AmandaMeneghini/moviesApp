@@ -1,6 +1,8 @@
 import React, {useState} from "react";
 import { View, Text, Image, TouchableOpacity, Modal, StyleSheet } from "react-native";
 
+import ModalDetails from '../ModalDetails'
+
 export default function Movies({data}){
 
     const [visibleModal, setVisibleModal] = useState(false);
@@ -14,14 +16,14 @@ export default function Movies({data}){
                 style={styles.cover}/>
 
                 <View style={styles.btnArea}>
-                    <TouchableOpacity style={styles.btn} onPress={() =>{}}>
+                    <TouchableOpacity style={styles.btn} onPress={() => setVisibleModal(true)}>
                         <Text style={styles.btnText}>LEIA MAIS</Text>
                     </TouchableOpacity>
                 </View>
             </View>
 
             <Modal transparent={true} animationType="slide" visible={visibleModal}>
-                <Text>TESTE</Text>
+                <ModalDetails />
             </Modal>
 
         </View>
